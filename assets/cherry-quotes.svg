@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300">
+  <defs>
+    <linearGradient id="fruit" x1="0" y1="0" x2="0.85" y2="1">
+      <stop stop-color="#fa655b"/>
+      <stop offset=".62" stop-color="#d92149"/>
+      <stop offset="1" stop-color="#9d163d"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#dbea82"/>
+      <stop offset="1" stop-color="#99ae49"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="220" cy="151" rx="184" ry="111" transform="rotate(-13 220 151)" fill="none" stroke="#fff8ed" stroke-width="1.25" opacity=".78"/>
+  <ellipse cx="220" cy="151" rx="191" ry="115" transform="rotate(13 220 151)" fill="none" stroke="#fff8ed" stroke-width="1.25" opacity=".56"/>
+  <g fill="#2d35a4">
+    <path d="M351 53q0 18 18 19-18 1-18 19 0-18-18-19 18-1 18-19"/>
+    <path d="M74 204q0 12 12 13-12 1-12 13 0-12-12-13 12-1 12-13"/>
+    <circle cx="91" cy="88" r="4"/>
+    <circle cx="364" cy="198" r="3"/>
+  </g>
+  <path d="M222 62c25-34 67-43 97-22-31 28-65 34-97 22Z" fill="url(#leaf)" stroke="#2d35a4" stroke-width="2.5"/>
+  <path d="M225 62c25-9 51-16 77-17" fill="none" stroke="#2d35a4" stroke-width="2" stroke-linecap="round"/>
+  <g fill="none" stroke="#2d35a4" stroke-width="5" stroke-linecap="round">
+    <path d="M227 40c-8 39-38 69-77 105"/>
+    <path d="M227 40c1 49 41 74 55 122"/>
+  </g>
+  <g fill="url(#fruit)" stroke="#8e1640" stroke-width="1.5">
+    <path d="M100 202c-18-36 14-76 50-60 35-18 65 11 57 47-6 27-37 58-76 71 15-14 24-28 26-38-24 7-46-1-57-20Z"/>
+    <path d="M241 221c-17-36 13-76 43-61 31-20 65 8 59 44-5 28-33 59-71 74 14-15 22-28 24-40-23 8-44 1-55-17Z"/>
+  </g>
+  <g fill="none" stroke="#ffb5a0" stroke-width="5" stroke-linecap="round">
+    <path d="M111 180c1-11 9-21 18-24"/>
+    <path d="M250 200c1-12 9-22 18-26"/>
+  </g>
+</svg>

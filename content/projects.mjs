@@ -1,0 +1,40 @@
+// Each number is a zero-based position in content/source.json.
+// Descriptions, awards and role are displayed only when documented.
+export const categories = {
+  video: 'Βίντεο / TVC',
+  campaign: 'Καμπάνια',
+  digital: 'Digital',
+  print: 'Έντυπο',
+  editorial: 'Αρθρογραφία',
+  personal: 'Προσωπικά & άλλα',
+  other: 'Άλλο υλικό',
+};
+
+export const projects = [
+  {slug:'nos-insurance', title:'NOS Insurance Services', brand:'NOS Insurance Services', category:'video', slides:[2,3,4], description:'Τρία τηλεοπτικά σποτ για τη NOS Insurance Services.', featured:true, format:'Τρία τηλεοπτικά σποτ'},
+  {slug:'frutop-fizzy-mixers', title:'Frutop Fizzy Mixers', brand:'Frutop', category:'video', slides:[5]},
+  {slug:'talagani-grill-cheese', title:'Ταλαγάνι Grill Cheese Masters', brand:'Ταλαγάνι Αποστόλου', category:'video', slides:[6]},
+  {slug:'ouzo-matarelli', title:'Ούζο Ματαρέλλη', brand:'Ούζο Ματαρέλλη', category:'video', slides:[7,8], description:'Δύο βίντεο για το Ούζο Ματαρέλλη.'},
+  {slug:'project-future', title:'Project Future', category:'personal', slides:[9], descriptionFrom:[9,1], role:'Εισηγητής στον 10ο και 11ο κύκλο του προγράμματος.'},
+  {slug:'kymco', title:'Kymco', brand:'Kymco', category:'other', slides:[10,11], description:'Δύο δημιουργικά για την Kymco.'},
+  {slug:'betshop', title:'Betshop', brand:'Betshop', category:'other', slides:[12,13], description:'Δύο δημιουργικά για τη Betshop.'},
+  {slug:'dais', title:'Δαΐς', brand:'Δαΐς', category:'print', slides:[14,15], description:'Δύο έντυπες καταχωρήσεις.'},
+  {slug:'suzuki-vitara', title:'Suzuki Vitara', brand:'Suzuki', category:'digital', slides:[16,17], description:'Δείγματα από τη landing page του Suzuki Vitara.'},
+  {slug:'insymmetry-international', title:'InSymmetry International', brand:'InSymmetry International', category:'digital', slides:[18], description:'Website της InSymmetry International.', linkLabels:['Επισκέψου το website']},
+  {slug:'anakem', title:'ΑΝΑΚΕΜ · Διαχείριση μπαζών', brand:'ΑΝΑΚΕΜ', category:'video', slides:[19]},
+  {slug:'bwin-funny-trivia', title:'Bwin funny trivia', brand:'Bwin', category:'campaign', slides:[20,21], description:'«Bwin Έγινε;», παιχνίδι trivia για τα social media της Bwin.', resultFrom:[21,1], role:'Δημιουργός της καμπάνιας, σύμφωνα με το CV.', featured:true, format:'Social game / contest', cover:'s20-2'},
+  {slug:'cinobo-life-of-chuck', title:'Life of Chuck promo', brand:'Cinobo', category:'campaign', slides:[22], description:'Προώθηση της ταινίας The Life of Chuck.', linkLabels:['Διάβασε το άρθρο στην Athens Voice'], featured:true, format:'Προώθηση ταινίας'},
+  {slug:'provocateur-vodafone', title:'Provocateur.gr × Vodafone', brand:'Vodafone Hellas', category:'campaign', slides:[23,24], description:'Native βίντεο στο Provocateur.gr για τη Vodafone Hellas.', resultFrom:[23,1]},
+  {slug:'provocateur-cosmote', title:'Provocateur.gr × Cosmote', brand:'Cosmote / OTE TV', category:'campaign', slides:[25,26], description:'Native καμπάνια του OTE TV στο Provocateur.gr για την τέταρτη σεζόν του House of Cards, με τέσσερα πρωτότυπα άρθρα και τέσσερα πρωτότυπα βίντεο.', result:'Silver στα DiMe Awards 2016, στην κατηγορία Best Sponsored Content.', linkLabels:['Διάβασε για το House of Cards στα social media','Διάβασε πότε το House of Cards πέρασε στην πραγματική ζωή']},
+  {slug:'michelin-crossclimate', title:'Michelin × Κώστας Αναγνωστόπουλος', brand:'Michelin', category:'campaign', slides:[27,28], description:'Για τα ελαστικά Michelin Cross Climate 2, ο Κώστας Αναγνωστόπουλος έφτιαξε με υλικά του σπιτιού φανταστικά σίκουελ γνωστών σειρών, με αφετηρία το «2» του προϊόντος.'},
+  {slug:'petros-kokkalis', title:'Πέτρος Κόκκαλης · Ευρωεκλογές', brand:'Πέτρος Κόκκαλης', category:'campaign', slides:[29,30], description:'Υλικό καμπάνιας για την υποψηφιότητα του Πέτρου Κόκκαλη στις Ευρωεκλογές.'},
+  {slug:'gazzetta-slogun', title:'Slogun @ Gazzetta.gr', brand:'Gazzetta.gr', category:'editorial', slides:[31,32], description:'Σύντομα χιουμοριστικά σχόλια αθλητικής επικαιρότητας, δύο με τρεις φορές την ημέρα, από τον Αύγουστο του 2022 έως τον Μάιο του 2025.', role:'Συντάκτης της στήλης Slogun.', featured:true, format:'Χιουμοριστική στήλη'},
+  {slug:'opap-petra-psalidi-xarti', title:'Πέτρα – Ψαλίδι – Χαρτί', brand:'ΟΠΑΠ', category:'campaign', slides:[33,34], descriptionFrom:[33,1]},
+  {slug:'anaskopisi', title:'Ανασκόπηση', brand:'The Press Project', category:'personal', slides:[36]},
+  {slug:'tsitsipas-chouligkans', title:'Τσιτσιπάς Χούλιγκανς', category:'personal', slides:[37], description:'Χιουμοριστική σελίδα σε Facebook και Instagram, με εμφανίσεις στην τηλεόραση και στο ραδιόφωνο.', role:'Δημιουργός και διαχειριστής της σελίδας Facebook.'},
+  {slug:'lanthimos-chouligkans', title:'Λάνθιμος Χούλιγκανς', category:'personal', slides:[38], description:'Χιουμοριστική σελίδα σε Facebook και Instagram, με παρουσίαση στην τηλεόραση.', role:'Δημιουργός και διαχειριστής της σελίδας Facebook.'},
+  {slug:'re-ti-lete-re', title:'ΡΕ ΤΙ ΛΕΤΕ ΡΕ;', category:'personal', slides:[39], description:'Ο Θοδωρής από τη Σαρανταποζαρούσα και ο Νίκος Μπόβολος σχολιάζουν την επικαιρότητα κάθε εβδομάδα, μαζί με τον ηχολήπτη και το ChatGPT.', role:'Συνδημιουργός και συμπαρουσιαστής.', linkLabels:['Άκουσε το podcast στο Spotify']},
+  {slug:'epaggelmatias-zamponokoptis', title:'Επαγγελματίας Ζαμπονοκόπτης', category:'personal', slides:[40], description:'Βιβλίο. Το portfolio παρουσιάζει την τέταρτη έκδοση.', role:'Συγγραφέας.'},
+  {slug:'diigima-popaganda', title:'Διήγημα στην Popaganda', brand:'Popaganda', category:'editorial', slides:[41], role:'Συγγραφέας.', linkLabels:['Διάβασε το διήγημα στην Popaganda']},
+  {slug:'diigima-ethnos', title:'Διήγημα στο Έθνος', brand:'Έθνος', category:'editorial', slides:[42], role:'Συγγραφέας.', linkLabels:['Διάβασε το διήγημα στο Έθνος']},
+];
