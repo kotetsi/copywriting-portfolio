@@ -22,9 +22,9 @@ jobs:
           node-version: '22'
       - uses: actions/configure-pages@v5
         id: pages
-      - run: node build.mjs
+      - run: SITE_URL="https://${PAGES_URL#*://}" node build.mjs
         env:
-          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          PAGES_URL: ${{ steps.pages.outputs.base_url }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
