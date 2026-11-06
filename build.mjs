@@ -39,7 +39,7 @@ const pdf = () => hasPdf
   : '<span class="small">[Προσθήκη PDF]</span>';
 
 async function page(path, section, title, description, body, options = {}) {
-  const { image = 'share.png', article = false, notFound = false, demo = false } = options;
+  const { image = 'share.png', article = false, notFound = false, demo = false, hasVideo = false } = options;
   if (!notFound && !demo) routes.push(path);
   const fullTitle = section === 'home' ? 'Νίκος Μπόβολος — Senior Copywriter' : `${title} — Νίκος Μπόβολος`;
   const canonical = siteUrl && !notFound ? `${siteUrl}${path}` : '';
@@ -65,6 +65,7 @@ ${canonical ? `<link rel="canonical" href="${esc(canonical)}"><meta property="og
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css">
 ${section === 'work' && path === '/work/' ? '<script src="/assets/filter.js" defer></script>' : ''}
+${hasVideo ? '<script src="/assets/video.js" defer></script>' : ''}
 </head>
 <body>
 <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
@@ -132,10 +133,26 @@ function heading(kicker, title, copy) {
 function detail(label, value) {
   return value ? `<div><dt>${label}</dt><dd>${esc(value)}</dd></div>` : '';
 }
+function videoEmbed(url) {
+  const source = new URL(url);
+  if (source.hostname === 'www.youtube.com' && source.pathname === '/watch') {
+    const id = source.searchParams.get('v');
+    if (id && /^[\w-]{11}$/.test(id)) return `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1`;
+  }
+  if (['docs.google.com', 'drive.google.com'].includes(source.hostname)) {
+    const id = /^\/file\/d\/([\w-]+)\/preview$/.exec(source.pathname)?.[1];
+    if (id) return `https://drive.google.com/file/d/${id}/preview`;
+  }
+  return '';
+}
 function slideVisual(item, project, i) {
   if (item.type === 'video') {
     const image = imageTag(item.file, '', i === 0);
-    return `<figure class="visual"><a class="video-link" href="${esc(item.url)}">${image}<span class="play"><span aria-hidden="true">▶</span> Δες το βίντεο${project.visuals.length > 1 ? ' ' + number(i) : ''} ${arrow}</span></a></figure>`;
+    const label = `Βίντεο ${number(i)} · ${project.title}`;
+    const embed = videoEmbed(item.url);
+    const player = embed ? ` data-video-src="${esc(embed)}" data-video-title="${esc(label)}"` : '';
+    const fallback = embed ? `<figcaption class="video-source" hidden>${link(item.url, `Άνοιγμα στον πάροχο ${arrow}`)}</figcaption>` : '';
+    return `<figure class="visual"><a class="video-link" href="${esc(item.url)}"${player}>${image}<span class="play"><span aria-hidden="true">▶</span> Δες το βίντεο${project.visuals.length > 1 ? ' ' + number(i) : ''}</span></a>${fallback}</figure>`;
   }
   const alt = settings.imageAlt[item.file] || `Δείγμα ${i + 1} από το έργο «${project.title}»`;
   return `<figure class="visual">${imageTag(item.file, alt, i === 0)}</figure>`;
@@ -264,7 +281,7 @@ for (const project of work) {
       <dl class="case-facts">${detail('Brand / φορέας', project.brand)}${detail('Είδος', project.format || categories[project.category])}${detail('Ρόλος', project.role)}${detail('Διάκριση', project.result)}</dl>
       <div class="gallery">${gallery}</div>
       <div class="case-links">${refs.join('')}${link(project.source, `Διαφάνεια από το αρχικό portfolio ${arrow}`, 'text-link')}</div>
-    </article>`, { image: visual ? `${visual}.jpg` : 'share.png' });
+    </article>`, { image: visual ? `${visual}.jpg` : 'share.png', hasVideo: project.visuals.some((item) => item.type === 'video' && videoEmbed(item.url)) });
 }
 
 const expEnd = cv.indexOf('FACEBOOK PAGES');
